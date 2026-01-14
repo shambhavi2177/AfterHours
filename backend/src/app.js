@@ -1,8 +1,12 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
 import healthRoutes from "./routes/health.routes.js";
 import authRoutes from "./routes/auth.routes.js"
+import journalRoutes from "./routes/journal.routes.js";
+
+
 const app = express();
 
 app.use(cors(
@@ -20,5 +24,6 @@ app.use(cookieParser())
 
 app.use("/health", healthRoutes);
 app.use("/auth",authRoutes); 
+app.use("/journal", journalRoutes);
 
 export default app;
