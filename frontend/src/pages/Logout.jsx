@@ -1,11 +1,24 @@
-import React from 'react'
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
+import { useAuth } from "../context/AuthContext";
 
-const Logout = () => {
+export default function Logout() {
+  const navigate = useNavigate();
+  const { setUser } = useAuth();
+
+  useEffect(() => {
+    const logout = async () => {
+      await api.post("/auth/logout");
+      setUser(null);
+      navigate("/login");
+    };
+
+    logout();
+  }, []);
+
   return (
-    <div>
-      <h1>logout</h1>
-    </div>
-  )
+    <>
+    <h3> You are now logged out!</h3></>
+  );
 }
-
-export default Logout
