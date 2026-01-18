@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const res = await api.get("/auth/me");
-      setUser(res.data.user);// i think it should be res.user.data
+      setUser(res.data.user);
     } catch (err) {
       setUser(null);
     } finally {

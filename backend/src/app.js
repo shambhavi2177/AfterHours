@@ -9,15 +9,16 @@ import journalRoutes from "./routes/journal.routes.js";
 
 const app = express();
 
-app.use(cors(
-    {
-     origin: "http://localhost:5000"
-    }
-));
-/*app.use(cors({
+// app.use(cors(
+//     {
+//      origin: "http://localhost:5000"
+//     }
+// ));
+app.use(cors({
   origin: "http://localhost:5173", // frontend later
   credentials: true,
-})); It said not to allow with credentials */
+})); 
+//It said not to allow with credentials 
 
 app.use(express.json());
 app.use(cookieParser())

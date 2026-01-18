@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import {Toaster} from "react-hot-toast"
 
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
@@ -12,6 +13,7 @@ import EditEntry from "./pages/EditEntry.jsx";
 export default function App() {
   return (
     <>
+    <Toaster/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
