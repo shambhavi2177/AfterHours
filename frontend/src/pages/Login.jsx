@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast"; 
+import { login } from "../services/auth.js";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -22,10 +23,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await api.post("/auth/login", {
-        email,
-        password,
-      });
+      const res = await login({email,password})
       toast.success("You are now logged in!")
       console.log("login success:" + res.data)
 

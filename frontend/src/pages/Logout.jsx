@@ -9,7 +9,7 @@ export default function Logout() {
 
   useEffect(() => {
     const logout = async () => {
-      await api.post("/auth/logout");
+      await api.post("/auth/logout");//this should be in services/auth
       setUser(null);
       navigate("/login");
     };

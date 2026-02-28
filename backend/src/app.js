@@ -18,13 +18,13 @@ app.use(cors({
   origin: "http://localhost:5173", // frontend later
   credentials: true,
 })); 
-//It said not to allow with credentials 
+//It said not to allow without credentials -> cookies
 
 app.use(express.json());
 app.use(cookieParser())
 
 app.use("/health", healthRoutes);
-app.use("/auth",authRoutes); 
-app.use("/journal", journalRoutes);
+app.use("/api/auth",authRoutes); 
+app.use("/api/journal", journalRoutes);
 
 export default app;

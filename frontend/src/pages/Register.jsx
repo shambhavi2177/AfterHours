@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import toast from "react-hot-toast";
+import { register } from "../services/auth.js";
 
 /**what does this page do 
  * collects user info 
@@ -44,12 +45,9 @@ const Register = () => {
     setError("");
 
     try {
-      const res = await api.post("/auth/register", {
-        email,
-        password,
-      });
+      const res = await register({email,password})
+      console.log("this is backend response",res.data)
       setUser(res.data.user);
-
       toast.success("Account created successfully");
       navigate("/timeline");
     } catch (error) {
