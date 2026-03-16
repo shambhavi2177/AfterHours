@@ -46,23 +46,62 @@ const EditEntry = () => {
 
   if (loading) return <h2>Loading entry...</h2>;
 
+  // return (
+  //   <div>
+  //     <h1>Edit Journal Entry</h1>
+
+  //     <form onSubmit={handleSubmit}>
+  //       <textarea
+  //         value={content}
+  //         onChange={(e) => setContent(e.target.value)}
+  //         rows="6"
+  //         required
+  //         disabled={saving}
+  //       />
+
+  //       <button type="submit" disabled={saving}>
+  //         {saving ? "Updating..." : "Update Entry"}
+  //       </button>
+  //     </form>
+  //   </div>
+  // );
   return (
-    <div>
-      <h1>Edit Journal Entry</h1>
+    <div className="min-h-screen bg-[#0b0f1a] text-white flex justify-center">
+      <div className="w-full max-w-3xl px-6 py-12">
+        <h1 className="text-3xl font-semibold mb-8">Edit Journal Entry</h1>
 
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          rows="6"
-          required
-          disabled={saving}
-        />
+        <form
+          onSubmit={handleSubmit}
+          className="bg-[#1a2136] p-6 rounded-xl border border-gray-700 space-y-6"
+        >
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            rows="8"
+            required
+            disabled={saving}
+            className="w-full bg-[#0b0f1a] border border-gray-600 rounded-lg px-3 py-3 focus:outline-none focus:border-purple-400 resize-none"
+          />
 
-        <button type="submit" disabled={saving}>
-          {saving ? "Updating..." : "Update Entry"}
-        </button>
-      </form>
+          <div className="flex justify-between items-center">
+            <button
+              type="button"
+              onClick={() => navigate("/timeline")}
+              className="text-gray-400 hover:text-white"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              disabled={saving}
+              className="bg-purple-500 hover:bg-purple-600 px-6 py-2 rounded-lg"
+            >
+              {saving ? "Updating..." : "Update Entry"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
